@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@heroicons/react": "^2.2.0",
     "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^19",
