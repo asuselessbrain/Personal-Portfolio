@@ -1,8 +1,12 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Banner from "./components/Banner";
+import Skills from "./components/Skills";
 
 export default function Home() {
   return (
-    <Button>Click</Button>
+    <div>
+      <Banner />
+
+      <Skills />
+    </div>
   );
 }
