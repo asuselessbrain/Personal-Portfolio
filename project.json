@@ -1,0 +1,71 @@
+{
+  "services": [
+    {
+      "id": "01",
+
+      "name": "Car Store - Online Vehicle Marketplace 🚗",
+
+      "imageUrl": "https://i.postimg.cc/2yFHwstk/screencapture-car-store-frontend-delta-vercel-app-2025-02-22-01-31-10.png",
+
+      "description": "Car Store is a responsive platform for browsing, purchasing, and managing vehicle orders. It offers secure payments, order tracking, customer reviews, and an admin dashboard with sales and profit analytics.",
+
+      "features": [
+        "Browse and filter cars by brand, price, and model",
+        "Secure payment integration with ShurjoPay",
+        "Order history and review system for users",
+        "Admin dashboard with profit and sales analytics"
+      ],
+      "techStacks": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "liveLink": "https://car-store-frontend-delta.vercel.app"
+    },
+    {
+      "id": "02",
+      "name": "MediCare - Medical Camp Management System 🏥",
+      "imageUrl": "https://i.postimg.cc/FsYqCZf4/screencapture-medicare-kohl-vercel-app-2025-02-22-18-46-08.png",
+      "description": "MediCare is a responsive platform designed to streamline medical camp operations with secure authentication, camp management, and role-based access for participants, organizers, and professionals. It includes payment integration and an intuitive admin panel for efficient management.",
+      "features": [
+        "User-friendly login/registration for participants, organizers, and professionals",
+        "Explore, join, and manage medical camps with secure payments",
+        "Responsive design for seamless cross-device accessibility",
+        "Admin panel to manage roles, permissions, and site settings"
+      ],
+      "techStacks": [
+        "React.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "Node.js"
+      ],
+      "liveLink": "https://medicare-kohl.vercel.app"
+    },
+    {
+      "id": "03",
+      "name": "Career Cove - Professional Networking Platform 🌐",
+      "imageUrl": "https://i.postimg.cc/QCR452Jd/screencapture-career-cove-netlify-app-2025-02-22-19-59-21.png",
+      "description": "Career Cove is a dynamic platform designed to connect professionals, offering features like personalized profiles, job listings, and networking opportunities to enhance career growth.",
+      "features": [
+        "Personalized user profiles showcasing skills and experience",
+        "Comprehensive job listings with advanced search filters",
+        "Networking tools to connect with industry professionals",
+        "Resource library with career development materials"
+      ],
+      "techStacks": [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "liveLink": "https://career-cove.netlify.app"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "json": "json-server --watch project.json --port 3004",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -15,6 +16,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "devicon": "^2.16.0",
+    "json-server": "^1.0.0-beta.3",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.7",
     "next": "15.1.7",
