@@ -1,5 +1,11 @@
 import { createContact } from '@/actions/createContact';
+import { Metadata } from 'next';
 import Form from 'next/form'
+
+export const metadata: Metadata = {
+    title: "Arfan Ahmed | Contact",
+    description: "Contact with Arfan Ahmed",
+  };
 
 const ContactPage = () => {
   

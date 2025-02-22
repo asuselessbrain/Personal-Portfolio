@@ -29,7 +29,7 @@ const page = async ({ params }: { params: Promise<{ blogId: string }> }) => {
   const blog = await data.json();
   return (
     //   <!-- Blog post with featured image and dark mode support -->
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 dark:bg-gray-900 my-12 pb-16 py-4 rounded dark:text-gray-100">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 pb-16 py-4 rounded dark:text-gray-100">
       <div className="max-w-3xl mx-auto">
         {/* <!-- Blog post header --> */}
         <div className="py-8">
