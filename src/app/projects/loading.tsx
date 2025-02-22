@@ -1,11 +1,9 @@
-import React from 'react';
+import Loader from "../components/shared/Loader";
 
-const loading = () => {
+const LoadingPage = () => {
     return (
-        <div>
-            loading.........
-        </div>
-    );
+        <Loader />
+  );
 };
 
-export default loading;
+export default LoadingPage;

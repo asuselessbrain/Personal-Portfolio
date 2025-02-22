@@ -11,7 +11,7 @@ import image from "../../assets/profile.jpg";
 const Banner = () => {
   return (
     <div
-      className="flex flex-col-reverse mt-6 md:mt-0 md:flex-row justify-between items-center p-4 md:p-5 lg:p-20 bg-white dark:bg-gray-900"
+      className="flex flex-col-reverse mt-8 md:mt-16 md:flex-row justify-between items-center p-4 md:p-5 lg:p-20 bg-white dark:bg-gray-900"
       id="banner"
     >
       <motion.div

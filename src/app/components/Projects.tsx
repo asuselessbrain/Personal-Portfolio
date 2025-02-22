@@ -12,16 +12,14 @@ export interface Project {
   liveLink: string;
 }
 
-const FeaturedProject = async () => {
+const Projects = async () => {
   const data = await fetch("http://localhost:3004/services", {
-    next: {
-      revalidate: 30,
-    },
+    cache: "no-store"
   });
   const projects = await data.json();
   return (
     <div className="mx-auto grid gap-16 space-y-10 md:space-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {projects?.slice(0, 3)?.map((project: Project) => (
+      {projects?.map((project: Project) => (
         <div
           key={project.name}
           className="group h-96 w-72 md:w-96 mb-12 [perspective:1000px]"
@@ -74,4 +72,4 @@ const FeaturedProject = async () => {
   );
 };
 
-export default FeaturedProject;
+export default Projects;

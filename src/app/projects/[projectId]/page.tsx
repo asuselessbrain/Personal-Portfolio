@@ -1,9 +1,32 @@
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { IoGlobeSharp } from "react-icons/io5";
 
-const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}): Promise<Metadata> {
+  // read route params
+  const { projectId } = await params;
+
+  // fetch data
+  const data = await fetch(`http://localhost:3004/services/${projectId}`);
+  const project = await data.json();
+
+  return {
+    title: project.name,
+    description: project.description,
+  };
+}
+
+const ProjectDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}) => {
   const { projectId } = await params;
 
   const data = await fetch(`http://localhost:3004/services/${projectId}`, {
@@ -19,7 +42,11 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
             {project?.name}
           </h2>
 
-          <div data-aos="fade-down" data-aos-duration="3000" className="relative">
+          <div
+            data-aos="fade-down"
+            data-aos-duration="3000"
+            className="relative"
+          >
             <Image
               width={200}
               height={200}
@@ -28,12 +55,20 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
               alt="project Image"
             />
           </div>
-          <p data-aos="fade-left" data-aos-duration="3000" className="text-gray-800 dark:text-white py-5 text-lg leading-8 mt-8">
+          <p
+            data-aos="fade-left"
+            data-aos-duration="3000"
+            className="text-gray-800 dark:text-white py-5 text-lg leading-8 mt-8"
+          >
             {project?.description}
           </p>
           <hr />
 
-          <div data-aos="fade-right" data-aos-duration="3000" className="text-left mt-8">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="3000"
+            className="text-left mt-8"
+          >
             <h2 className="text-xl font-semibold mb-2 text-red-600">
               🔑 Key Features:
             </h2>
@@ -46,7 +81,11 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
             </ul>
           </div>
 
-          <div data-aos="fade-left" data-aos-duration="3000" className="text-left mt-8">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="3000"
+            className="text-left mt-8"
+          >
             <h2 className="text-xl font-semibold mb-2 text-red-600">
               💻 Tech Stack:
             </h2>
@@ -60,7 +99,11 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
           </div>
 
           {project?.liveLink && (
-            <div data-aos="zoom-in" data-aos-duration="2500" className="mt-10 text-center">
+            <div
+              data-aos="zoom-in"
+              data-aos-duration="2500"
+              className="mt-10 text-center"
+            >
               <Link
                 href={project.liveLink}
                 target="_blank"
@@ -78,4 +121,4 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
   );
 };
 
-export default page;
+export default ProjectDetailsPage;
