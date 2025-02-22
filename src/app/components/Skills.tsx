@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const techIcons = [
   {
@@ -96,15 +96,11 @@ const techIcons = [
 ];
 
 const Skills = () => {
-
   useEffect(() => {
-    AOS.init({
-      duration: 3000,
-      once: false, 
-    });
+    AOS.init({});
   }, []);
   return (
-    <div data-aos="fade-up" data-aos-duration="3000">
+    <div data-aos="zoom-in" data-aos-duration="2000">
       <h2 className="text-6xl font-bold text-center dark:text-white my-10">
         My Top Skills
       </h2>

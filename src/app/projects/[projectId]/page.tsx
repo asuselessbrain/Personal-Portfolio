@@ -11,7 +11,6 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
   });
 
   const project = await data.json();
-  //   console.log(projectId);
   return (
     <div className="mt-16">
       <div className="max-w-screen-lg mx-auto p-5 sm:p-10 md:p-16">
@@ -20,7 +19,7 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
             {project?.name}
           </h2>
 
-          <div className="relative">
+          <div data-aos="fade-down" data-aos-duration="3000" className="relative">
             <Image
               width={200}
               height={200}
@@ -29,12 +28,12 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
               alt="project Image"
             />
           </div>
-          <p className="text-gray-800 dark:text-white py-5 text-lg leading-8 mt-8">
+          <p data-aos="fade-left" data-aos-duration="3000" className="text-gray-800 dark:text-white py-5 text-lg leading-8 mt-8">
             {project?.description}
           </p>
           <hr />
 
-          <div className="text-left mt-8">
+          <div data-aos="fade-right" data-aos-duration="3000" className="text-left mt-8">
             <h2 className="text-xl font-semibold mb-2 text-red-600">
               🔑 Key Features:
             </h2>
@@ -47,7 +46,7 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
             </ul>
           </div>
 
-          <div className="text-left mt-8">
+          <div data-aos="fade-left" data-aos-duration="3000" className="text-left mt-8">
             <h2 className="text-xl font-semibold mb-2 text-red-600">
               💻 Tech Stack:
             </h2>
@@ -61,7 +60,7 @@ const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
           </div>
 
           {project?.liveLink && (
-            <div className="mt-10 text-center">
+            <div data-aos="zoom-in" data-aos-duration="2500" className="mt-10 text-center">
               <Link
                 href={project.liveLink}
                 target="_blank"
