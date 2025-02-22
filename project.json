@@ -74,7 +74,7 @@
   ],
   "blogs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Building Scalable Web Applications with the MERN Stack",
       "author": "Arfan Ahmed",
       "date": "2024-12-15",
@@ -84,7 +84,7 @@
       "tags": ["MERN Stack", "Full-Stack", "Web Apps"]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Integrating ShurjoPay into Your Web Applications",
       "author": "Arfan Ahmed",
       "date": "2025-02-11",
@@ -94,7 +94,7 @@
       "tags": ["ShurjoPay", "Integration", "Fintech"]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Dark Mode Implementation with Tailwind CSS and ShadCN",
       "author": "Arfan Ahmed",
       "date": "2025-02-20",
@@ -104,7 +104,7 @@
       "tags": ["Tailwind CSS", "ShadCN", "Dark Mode"]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Optimizing MongoDB Queries for Better Performance",
       "author": "Arfan Ahmed",
       "date": "2025-01-05",
@@ -114,7 +114,7 @@
       "tags": ["MongoDB", "Optimization", "Backend"]
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "My Journey of Developing a Car Store Platform with ShurjoPay Integration",
       "author": "Arfan Ahmed",
       "date": "2025-02-14",
