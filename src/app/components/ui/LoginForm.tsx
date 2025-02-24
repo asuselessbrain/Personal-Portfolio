@@ -111,7 +111,7 @@ const LoginForm = () => {
                   />
                 </button>
                 <button
-                  onClick={() => signIn("github", { callbackUrl: "/" })}
+                  onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
                   type="button"
                   className="border-none outline-none"
                 >

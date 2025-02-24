@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image from "../../assets/profile.jpg";
+import image from "../../../assets/profile.jpg";
 const AboutPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
