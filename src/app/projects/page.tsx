@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Project } from "../components/Projects";
+import { Project } from "../components/ui/Projects";
 import ProjectCard from "../components/shared/ProjectCard";
 
 export const metadata: Metadata = {

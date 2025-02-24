@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Project } from "../Projects";
+import { Project } from "../ui/Projects";
 import Link from "next/link";
 import { FaEye } from "react-icons/fa";
 
-const ProjectCard = ({project}: {project: Project}) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div
       key={project.name}

@@ -1,5 +1,6 @@
 "use client";
 import { ModeToggle } from "@/components/ModeToggle";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -10,13 +11,13 @@ const NavBar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const items =[
-    {name: 'Home', value : '/'},
-    {name: 'About', value : '/about'},
-    {name: 'Project', value : '/projects'},
-    {name: 'Blogs', value : '/blogs'},
-    {name: 'Contact', value : '/contact'},
-  ]
+  const items = [
+    { name: "Home", value: "/" },
+    { name: "About", value: "/about" },
+    { name: "Project", value: "/projects" },
+    { name: "Blogs", value: "/blogs" },
+    { name: "Contact", value: "/contact" },
+  ];
 
   return (
     <nav className="bg-white dark:bg-[#010313] dark:text-white z-50 text-black border-b dark:border-gray-700 p-2 fixed w-full max-w-[1440px] shadow-md">
@@ -49,7 +50,10 @@ const NavBar = () => {
             />
           </svg>
         </button>
-        <div className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default">
+        <div
+          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
+          id="navbar-default"
+        >
           <ul className="font-medium flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border border-gray-100 dark:border-gray-700 rounded-lg md:border-0">
             {items.map((item) => (
               <li key={item?.value}>
@@ -64,13 +68,15 @@ const NavBar = () => {
                   {item?.name}
                 </Link>
               </li>
-              
             ))}
-            <li
-                  className="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 md:bg-transparent md:hover:bg-transparent"
-                >
-                   <ModeToggle /> 
+            <Link href="/login">
+              <li className="block py-2 px-3 rounded  md:bg-transparent md:hover:bg-transparent">
+                <Button className="hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Login</Button>
               </li>
+            </Link>
+            <li className="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 md:bg-transparent md:hover:bg-transparent">
+              <ModeToggle />
+            </li>
           </ul>
         </div>
       </div>
