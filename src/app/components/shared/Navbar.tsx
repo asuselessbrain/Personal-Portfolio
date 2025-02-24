@@ -21,16 +21,16 @@ const NavBar = () => {
 
   return (
     <nav className="bg-white dark:bg-[#010313] dark:text-white z-50 text-black border-b dark:border-gray-700 p-2 fixed w-full max-w-[1440px] shadow-md">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex relative items-center justify-between p-4">
         <Link href="/" className="flex items-center space-x-3">
-          <span className="self-center text-4xl md:text-6xl font-semibold">
+          <span className="self-center text-2xl sm:text-4xl lg:text-6xl font-semibold">
             Arfan Ahmed
           </span>
         </Link>
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 dark:text-gray-200 rounded-lg md:hidden hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 dark:text-gray-200 rounded-lg lg:hidden hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded={isOpen}
         >
@@ -51,18 +51,21 @@ const NavBar = () => {
           </svg>
         </button>
         <div
-          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
+          className={`${
+            isOpen ? "block absolute top-20" : "hidden"
+          } w-full lg:block lg:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border border-gray-100 dark:border-gray-700 rounded-lg md:border-0">
+          <ul className="font-medium flex flex-col lg:flex-row lg:space-x-8 p-4 lg:p-0 mt-4 lg:mt-0 border bg-gray-800 lg:bg-transparent border-gray-100 dark:border-gray-700 rounded-lg lg:border-0">
             {items.map((item) => (
               <li key={item?.value}>
                 <Link
                   href={item?.value}
+                  onClick={()=>setIsOpen(false)}
                   className={`${
                     pathname === item?.value
                       ? "text-green-600 font-bold py-2 px-3 block border border-green-600 rounded-md"
-                      : "block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 md:bg-transparent md:hover:bg-transparent"
+                      : "block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 lg:bg-transparent lg:hover:bg-transparent"
                   }`}
                 >
                   {item?.name}
@@ -70,11 +73,13 @@ const NavBar = () => {
               </li>
             ))}
             <Link href="/login">
-              <li className="block py-2 px-3 rounded  md:bg-transparent md:hover:bg-transparent">
-                <Button className="hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Login</Button>
+              <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
+                <Button className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white">
+                  Login
+                </Button>
               </li>
             </Link>
-            <li className="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 md:bg-transparent md:hover:bg-transparent">
+            <li className="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 lg:bg-transparent lg:hover:bg-transparent">
               <ModeToggle />
             </li>
           </ul>
