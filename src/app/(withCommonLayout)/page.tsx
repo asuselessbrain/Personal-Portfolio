@@ -1,6 +1,7 @@
-import Featured from "./components/Featured/Featured";
-import Skills from "./components/Skills";
-import Banner from "./components/Banner";
+import Banner from "../components/Banner";
+import Featured from "../components/Featured/Featured";
+import Skills from "../components/Skills";
+
 
 export default function Home() {
   return (
