@@ -102,7 +102,13 @@ const LoginForm = () => {
               </p>
 
               <div className="space-x-6 flex justify-center">
-                <button type="button" className="border-none outline-none">
+                <button
+                  onClick={() =>
+                    signIn("google", { callbackUrl: "/dashboard" })
+                  }
+                  type="button"
+                  className="border-none outline-none"
+                >
                   <Image
                     src="https://devicon-website.vercel.app/api/google/original.svg"
                     alt="google-icon"
@@ -111,7 +117,9 @@ const LoginForm = () => {
                   />
                 </button>
                 <button
-                  onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
+                  onClick={() =>
+                    signIn("github", { callbackUrl: "/dashboard" })
+                  }
                   type="button"
                   className="border-none outline-none"
                 >

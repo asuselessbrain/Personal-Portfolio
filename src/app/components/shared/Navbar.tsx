@@ -1,11 +1,21 @@
 "use client";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const NavBar = () => {
+type Session = {
+  user?: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+};
+
+const NavBar = ({ session }: { session: Session | null }) => {
+  console.log(session);
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -61,7 +71,7 @@ const NavBar = () => {
               <li key={item?.value}>
                 <Link
                   href={item?.value}
-                  onClick={()=>setIsOpen(false)}
+                  onClick={() => setIsOpen(false)}
                   className={`${
                     pathname === item?.value
                       ? "text-green-600 font-bold py-2 px-3 block border border-green-600 rounded-md"
@@ -72,13 +82,21 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
-            <Link href="/login">
+            {session?.user ? (
               <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
-                <Button className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white">
-                  Login
+                <Button onClick={()=>signOut()} className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white">
+                  Logout
                 </Button>
               </li>
-            </Link>
+            ) : (
+              <Link href="/login">
+                <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
+                  <Button className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white">
+                    Login
+                  </Button>
+                </li>
+              </Link>
+            )}
             <li className="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 lg:bg-transparent lg:hover:bg-transparent">
               <ModeToggle />
             </li>
