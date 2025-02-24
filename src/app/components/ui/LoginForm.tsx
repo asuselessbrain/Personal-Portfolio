@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   return (
@@ -108,7 +110,13 @@ const LoginForm = () => {
                     height={40}
                   />
                 </button>
-                <FaGithub size={40} />
+                <button
+                  onClick={() => signIn("github", { callbackUrl: "/" })}
+                  type="button"
+                  className="border-none outline-none"
+                >
+                  <FaGithub size={40} />
+                </button>
               </div>
 
               <p className="text-sm !mt-8 text-center text-gray-500 dark:text-gray-400">
