@@ -1,17 +1,44 @@
 "use client";
+import { useState } from "react";
 import { MdDeleteForever, MdTipsAndUpdates } from "react-icons/md";
+import UpdateBlogModal from "./UpdateBlogModal";
+import { Blog } from "@/app/(dashboard)/dashboard/blogs/page";
 
-const DeleteAndUpdateBlogBtn = () => {
+const DeleteAndUpdateBlogBtn = ({ blog }: { blog: Blog }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:3004/blogs/${blog?.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete the blog.");
+      }
+    } catch (error) {
+      console.error("Error deleting blog:", error);
+    }
+  };
   return (
     <div className="absolute top-2 right-2 flex items-center gap-2 bg-gray-100 p-1 rounded">
       <MdTipsAndUpdates
+        onClick={openModal}
         className="text-green-500 hover:scale-105 hover:text-green-600"
         size={28}
       />
       <MdDeleteForever
+        onClick={handleDelete}
         className="text-red-500 hover:scale-105 hover:text-red-600"
         size={28}
       />
+      {isOpen && <UpdateBlogModal blog={blog} closeModal={closeModal} />}
     </div>
   );
 };

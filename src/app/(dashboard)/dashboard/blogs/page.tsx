@@ -52,7 +52,7 @@ const BlogPage = async () => {
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white hover:underline mt-2">
                 {blog?.title}
               </h3>
-              < DeleteAndUpdateBlogBtn />
+              < DeleteAndUpdateBlogBtn blog = {blog} />
             </div>
           </>
         ))}

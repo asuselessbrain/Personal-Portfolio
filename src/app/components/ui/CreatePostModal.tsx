@@ -2,8 +2,8 @@ import { RxCross2 } from "react-icons/rx";
 import CreatePostForm from "./CreatePostForm";
 
 export type Props = {
-  closeModal: () => void; // A function with no parameters and no return value
-};
+    closeModal: () => void; // A function with no parameters and no return value
+  };
 
 const CreatePostModal: React.FC<Props> = ({ closeModal }) => {
   return (
@@ -29,6 +29,7 @@ const CreatePostModal: React.FC<Props> = ({ closeModal }) => {
 
           {/* Modal body */}
           <CreatePostForm closeModal={closeModal} />
+
         </div>
       </div>
     </div>
