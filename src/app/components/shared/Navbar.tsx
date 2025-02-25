@@ -15,7 +15,6 @@ type Session = {
 };
 
 const NavBar = ({ session }: { session: Session | null }) => {
-  console.log(session);
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -62,11 +61,11 @@ const NavBar = ({ session }: { session: Session | null }) => {
         </button>
         <div
           className={`${
-            isOpen ? "block absolute top-20" : "hidden"
+            isOpen ? "block absolute top-20 left-0 right-10" : "hidden"
           } w-full lg:block lg:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col lg:flex-row lg:space-x-8 p-4 lg:p-0 mt-4 lg:mt-0 border bg-gray-800 lg:bg-transparent border-gray-100 dark:border-gray-700 rounded-lg lg:border-0">
+          <ul className="font-medium flex flex-col lg:flex-row lg:space-x-8 p-4 lg:p-0 mt-4 lg:mt-0 border dark:bg-gray-800 bg-gray-200 dark:lg:bg-transparent lg:bg-transparent border-gray-100 dark:border-gray-700 rounded-lg lg:border-0">
             {items.map((item) => (
               <li key={item?.value}>
                 <Link
@@ -83,11 +82,19 @@ const NavBar = ({ session }: { session: Session | null }) => {
               </li>
             ))}
             {session?.user ? (
-              <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
-                <Button onClick={()=>signOut()} className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white">
-                  Logout
-                </Button>
-              </li>
+              <>
+                <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
+                  <Link href="/dashboard">Dashboard</Link>
+                </li>
+                <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
+                  <Button
+                    onClick={() => signOut()}
+                    className="hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-white"
+                  >
+                    Logout
+                  </Button>
+                </li>
+              </>
             ) : (
               <Link href="/login">
                 <li className="block py-2 px-3 rounded  lg:bg-transparent lg:hover:bg-transparent">
