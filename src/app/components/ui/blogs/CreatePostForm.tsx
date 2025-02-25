@@ -2,8 +2,6 @@ import { createBLog } from "@/actions/createBlog";
 import Form from "next/form";
 import { Props } from "./CreatePostModal";
 
-
-
 const CreatePostForm: React.FC<Props> = ({ closeModal }) => {
   return (
     // <!-- component -->

@@ -1,5 +1,5 @@
-import DashboardBlogsHeader from "@/app/components/ui/DashboardBlogsHeader";
-import DeleteAndUpdateBlogBtn from "@/app/components/ui/DeleteAndUpdateBlogBtn";
+import DashboardBlogsHeader from "@/app/components/ui/blogs/DashboardBlogsHeader";
+import DeleteAndUpdateBlogBtn from "@/app/components/ui/blogs/DeleteAndUpdateBlogBtn";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -52,7 +52,7 @@ const BlogPage = async () => {
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white hover:underline mt-2">
                 {blog?.title}
               </h3>
-              < DeleteAndUpdateBlogBtn blog = {blog} />
+              <DeleteAndUpdateBlogBtn blog={blog} />
             </div>
           </>
         ))}

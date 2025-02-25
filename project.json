@@ -62,6 +62,15 @@
         "Tailwind CSS"
       ],
       "liveLink": "https://career-cove.netlify.app"
+    },
+    {
+      "id": "47ab",
+      "name": "Arfan",
+      "features": "dfghdf",
+      "techStacks": "sdgfgt",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "liveLink": "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "dxfgdsfgt"
     }
   ],
   "contacts": [
@@ -117,13 +126,6 @@
       "category": "Project Experience",
       "content": "Developing the Car Store platform was an enriching experience that involved designing a user-friendly e-commerce application with a focus on functionality and scalability. The project featured both admin and user dashboards. The admin dashboard included visual analytics such as monthly profit graphs and car sales by brand, while the user dashboard offered features like order history, reviews, and payment options. Integrating ShurjoPay was a crucial aspect, enabling secure transactions directly from the platform. Implementing pagination for product listings ensured smooth navigation, especially as the database grew. Using the MERN stack allowed seamless integration between the frontend and backend. MongoDB’s aggregation pipeline proved invaluable in fetching data for the dashboard analytics, and Tailwind CSS with ShadCN ensured a clean, responsive UI with dark mode support. One of the biggest challenges was handling real-time payment status updates, which was addressed through proper API handling and webhook integration. This project not only enhanced my technical skills but also deepened my understanding of building production-ready applications.",
       "image": "https://i.postimg.cc/2yFHwstk/screencapture-car-store-frontend-delta-vercel-app-2025-02-22-01-31-10.png"
-    },
-    {
-      "id": "6108",
-      "title": "abcdefgh",
-      "category": "sdftds",
-      "image": "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "content": "gerterwt"
     }
   ]
 }
