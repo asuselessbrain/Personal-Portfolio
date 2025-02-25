@@ -1,4 +1,5 @@
 import { Project } from "@/app/components/ui/Projects";
+import DeleteAndUpdateProjectBtn from "@/app/components/ui/projects/DeleteAndUpdateProjectBtn";
 import ProjectHeader from "@/app/components/ui/projects/ProjectHeader";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -37,7 +38,7 @@ const DashboardProjectPage = async () => {
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-white hover:underline mt-2">
                     {project?.name}
                   </h3>
-                  {/* <DeleteAndUpdateBlogBtn blog={blog} /> */}
+                  <DeleteAndUpdateProjectBtn project={project} />
                 </div>
               </>
             ))}
