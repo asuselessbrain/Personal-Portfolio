@@ -1,14 +1,14 @@
 import { RxCross2 } from "react-icons/rx";
 import Form from "next/form";
-import { updateBlog } from "@/actions/updateBlog";
 import { Project } from "../Projects";
+import { updateProject } from "@/actions/updateProject";
 
 export type Props = {
   closeModal: () => void;
   project: Project;
 };
 
-const UpdateProjectModal: React.FC<Props> = ({ closeModal, prject }) => {
+const UpdateProjectModal: React.FC<Props> = ({ closeModal, project }) => {
   return (
     <div
       className="fixed left-0 top-0 z-[1055] flex h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-black/50"
@@ -37,43 +37,57 @@ const UpdateProjectModal: React.FC<Props> = ({ closeModal, prject }) => {
             </div>
 
             <Form
-              action={updateBlog}
+              action={updateProject}
               className="editor mx-auto w-10/12 flex flex-col text-black border mb-4 border-gray-300 p-4 shadow-lg max-w-2xl"
             >
-                <input
+              <input
                 className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-                placeholder="Title"
-                // defaultValue={blog?.id}
+                placeholder="Id"
+                defaultValue={project?.id}
                 readOnly
                 name="id"
                 type="text"
               />
               <input
                 className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-                placeholder="Title"
-                // defaultValue={blog?.title}
-                name="title"
+                placeholder="Name"
+                defaultValue={project?.name}
+                name="name"
                 type="text"
               />
               <input
                 className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-                placeholder="Category"
-                // defaultValue={blog?.category}
-                name="category"
+                placeholder="Image Url "
+                defaultValue={project?.imageUrl}
+                name="imageUrl"
                 type="text"
               />
               <input
                 className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-                placeholder="Image"
-                // defaultValue={blog?.image}
-                name="image"
+                placeholder="Features"
+                defaultValue={project?.features}
+                name="features"
+                type="text"
+              />
+              <input
+                className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
+                placeholder="Tech Stacks"
+                defaultValue={project?.techStacks}
+                name="techStacks"
+                type="text"
+              />
+              <input
+                className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
+                placeholder="Live Link"
+                defaultValue={project?.liveLink}
+                name="liveLink"
                 type="text"
               />
               <textarea
                 className="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
                 placeholder="Describe everything about this post here"
-                // defaultValue={blog?.content}
-                name="content"
+                defaultValue={project?.description}
+                name="description"
               ></textarea>
 
               {/* <!-- buttons --> */}
