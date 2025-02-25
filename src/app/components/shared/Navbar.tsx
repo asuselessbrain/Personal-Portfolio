@@ -24,7 +24,7 @@ const NavBar = ({ session }: { session: Session | null }) => {
     { name: "Home", value: "/" },
     { name: "About", value: "/about" },
     { name: "Project", value: "/projects" },
-    { name: "Blogs", value: "/blogs" },
+    { name: "Blogs", value: "/blog" },
     { name: "Contact", value: "/contact" },
   ];
 

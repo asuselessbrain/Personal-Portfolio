@@ -35,7 +35,7 @@ const BlogPage = async () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((blog: Blog) => (
-          <Link href={`/blogs/${blog?.id}`} key={blog.id}>
+          <Link href={`/blog/${blog?.id}`} key={blog.id}>
             <div className="rounded-lg shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group">
               <Image
                 width={200}
