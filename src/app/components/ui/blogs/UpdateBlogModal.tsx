@@ -33,7 +33,7 @@ const UpdateBlogModal: React.FC<Props> = ({ closeModal, blog }) => {
           {/* Modal body */}
           <div>
             <div className="heading text-center font-bold text-2xl m-2 text-gray-800">
-              New Post
+              Update Post
             </div>
 
             <Form
@@ -43,7 +43,7 @@ const UpdateBlogModal: React.FC<Props> = ({ closeModal, blog }) => {
                 <input
                 className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
                 placeholder="Title"
-                defaultValue={blog?.id}
+                defaultValue={blog?._id}
                 readOnly
                 name="id"
                 type="text"

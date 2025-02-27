@@ -4,9 +4,8 @@ import { redirect } from "next/navigation";
 
 export const updateBlog = async (data: FormData) => {
   const blog = Object.fromEntries(data.entries());
-  console.log(blog);
 
-  const res = await fetch(`http://localhost:3004/blogs/${blog?.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/${blog?.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
