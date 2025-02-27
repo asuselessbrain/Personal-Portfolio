@@ -1,14 +1,15 @@
 type Message = {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   message: string;
 };
 const MessagesPage = async () => {
-  const data = await fetch("http://localhost:3004/contacts", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/messages`, {
     cache: "no-store",
   });
-  const messages = await data.json();
+  const data = await res.json();
+  const messages = data?.data
   console.log(messages);
   return (
     <div className="w-full m-10">
@@ -33,7 +34,7 @@ const MessagesPage = async () => {
           <tbody>
             {messages?.map((message: Message) => (
               <tr
-                key={message.id}
+                key={message._id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
               >
                 <td
