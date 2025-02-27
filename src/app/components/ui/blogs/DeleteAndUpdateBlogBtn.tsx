@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { MdDeleteForever, MdTipsAndUpdates } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
+import { TiEdit } from "react-icons/ti";
 import UpdateBlogModal from "./UpdateBlogModal";
 import { Blog } from "@/app/(dashboard)/dashboard/blogs/page";
 
@@ -24,7 +25,7 @@ const DeleteAndUpdateBlogBtn = ({ blog }: { blog: Blog }) => {
   };
   return (
     <div className="absolute top-2 right-2 flex items-center gap-2 bg-gray-100 p-1 rounded">
-      <MdTipsAndUpdates
+      <TiEdit 
         onClick={openModal}
         className="text-green-500 hover:scale-105 hover:text-green-600"
         size={28}

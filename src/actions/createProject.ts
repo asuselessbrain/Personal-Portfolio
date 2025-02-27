@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export const createProject = async (data: FormData) => {
   const project = Object.fromEntries(data.entries());
 
-  const res = await fetch("http://localhost:3004/services", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

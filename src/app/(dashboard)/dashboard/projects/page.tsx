@@ -10,10 +10,11 @@ export const metadata: Metadata = {
 };
 
 const DashboardProjectPage = async () => {
-  const data = await fetch("http://localhost:3004/services", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`, {
     cache: "no-store",
   });
-  const projects = await data.json();
+  const data = await res.json();
+  const projects = data?.data;
   return (
     <div
       data-aos="zoom-in-up"

@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </p>
 
             <Link
-              href={`/projects/${project?.id}`}
+              href={`/projects/${project?._id}`}
               className="flex items-center justify-center w-full"
             >
               <button className="my-2 bg-yellow-800 hover:bg-yellow-700 text-white font-bold py-2 px-4 w-auto rounded-full inline-flex items-center">

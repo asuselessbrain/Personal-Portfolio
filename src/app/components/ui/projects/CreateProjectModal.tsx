@@ -5,7 +5,6 @@ import { createProject } from "@/actions/createProject";
 
 export type Props = {
   closeModal: () => void;
-//   blog: Blog;
 };
 
 const CreateProject: React.FC<Props> = ({ closeModal }) => {
@@ -40,24 +39,34 @@ const CreateProject: React.FC<Props> = ({ closeModal }) => {
               action={createProject}
               className="editor mx-auto w-10/12 flex flex-col text-black border mb-4 border-gray-300 p-4 shadow-lg max-w-2xl"
             >
-                <input
-                className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-                placeholder="Project Name"
+              <input
+                className="title bg-gray-100 border border-gray-300 p-2 mb-2 outline-none"
+                placeholder="Project Name Must be above 10 characters and under 50 characters"
                 name="name"
                 type="text"
               />
+              <p className="text-[11px] mb-4 text-red-500 font-semibold">
+                Name Must be above 10 characters and under 50 characters
+              </p>
+
               <input
-                className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
+                className="bg-gray-100 border border-gray-300 p-2 mb-2 outline-none"
                 placeholder="Features"
                 name="features"
                 type="text"
               />
+              <p className="text-[11px] mb-4 text-red-500 font-semibold">
+                Every features must be separated by commas 
+              </p>
               <input
-                className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
+                className="bg-gray-100 border border-gray-300 p-2 mb-2 outline-none"
                 placeholder="Tech Stacks"
                 name="techStacks"
                 type="text"
               />
+              <p className="text-[11px] mb-4 text-red-500 font-semibold">
+              Every techStacks must be separated by commas 
+              </p>
               <input
                 className="bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
                 placeholder="Image Url"
@@ -71,10 +80,13 @@ const CreateProject: React.FC<Props> = ({ closeModal }) => {
                 type="text"
               />
               <textarea
-                className="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
+                className="description bg-gray-100 sec p-3 h-60 border mb-2 border-gray-300 outline-none"
                 placeholder="Describe everything about this project here"
                 name="description"
               ></textarea>
+              <p className="text-[11px] mb-4 text-red-500 font-semibold">
+                Description Must be above 50 characters and under 200 characters
+              </p>
 
               {/* <!-- buttons --> */}
               <div className="flex justify-end rounded-b-md border-t-2 border-neutral-100 mt-4 dark:border-white/10">

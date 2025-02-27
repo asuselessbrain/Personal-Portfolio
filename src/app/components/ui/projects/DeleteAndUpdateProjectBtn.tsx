@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { MdDeleteForever, MdTipsAndUpdates } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
+import { TiEdit } from "react-icons/ti";
 import UpdateProjectModal from "./UpdateProjectModal";
 import { Project } from "../Projects";
 
@@ -12,13 +13,16 @@ const DeleteAndUpdateProjectBtn = ({ project }: { project: Project }) => {
 
   const handleDelete = async () => {
     try {
-        console.log(project?.id);
-      const response = await fetch(`http://localhost:3004/services/${project?.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      console.log(project?._id);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/projects/${project?._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to delete the project.");
@@ -29,7 +33,7 @@ const DeleteAndUpdateProjectBtn = ({ project }: { project: Project }) => {
   };
   return (
     <div className="absolute top-2 right-2 flex items-center gap-2 bg-gray-100 p-1 rounded">
-      <MdTipsAndUpdates
+      <TiEdit
         onClick={openModal}
         className="text-green-500 hover:scale-105 hover:text-green-600"
         size={28}
@@ -39,7 +43,9 @@ const DeleteAndUpdateProjectBtn = ({ project }: { project: Project }) => {
         className="text-red-500 hover:scale-105 hover:text-red-600"
         size={28}
       />
-      {isOpen && <UpdateProjectModal project={project} closeModal={closeModal} />}
+      {isOpen && (
+        <UpdateProjectModal project={project} closeModal={closeModal} />
+      )}
     </div>
   );
 };

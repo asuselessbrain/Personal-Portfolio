@@ -43,7 +43,7 @@ const UpdateProjectModal: React.FC<Props> = ({ closeModal, project }) => {
               <input
                 className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
                 placeholder="Id"
-                defaultValue={project?.id}
+                defaultValue={project?._id}
                 readOnly
                 name="id"
                 type="text"

@@ -8,10 +8,11 @@ export const metadata: Metadata = {
 };
 
 const ProjectPage = async () => {
-  const data = await fetch("http://localhost:3004/services", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`, {
     cache: "no-store",
   });
-  const projects = await data.json();
+  const data = await res.json();
+  const projects = data?.data;
   return (
     <div
       data-aos="zoom-in-up"
@@ -26,7 +27,7 @@ const ProjectPage = async () => {
 
           <div className="mx-auto grid gap-16 space-y-10 md:space-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projects?.map((project: Project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard key={project._id} project={project} />
             ))}
           </div>
         </div>

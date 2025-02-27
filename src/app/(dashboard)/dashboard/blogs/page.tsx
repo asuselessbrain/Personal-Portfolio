@@ -25,7 +25,7 @@ const BlogPage = async () => {
   });
 
   const res = await data.json();
-  const blogs = res?.data
+  const blogs = res?.data;
   return (
     <div
       data-aos="zoom-in-up"
@@ -36,26 +36,27 @@ const BlogPage = async () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((blog: Blog) => (
-          <>
-            <div key={blog?._id} className="rounded-lg relative shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group h-full">
-              <Image
-                width={200}
-                height={200}
-                src={blog?.image}
-                alt={blog?.title}
-                className="w-full h-48 object-cover rounded-lg group-hover:scale-105 duration-1000"
-              />
-              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mt-3">
-                <span>{blog?.date}</span>
-                <span className="mx-2">|</span>
-                <span>{blog?.author}</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white hover:underline mt-2">
-                {blog?.title}
-              </h3>
-              <DeleteAndUpdateBlogBtn blog={blog} />
+          <div
+            key={blog?._id}
+            className="rounded-lg relative shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group h-full"
+          >
+            <Image
+              width={200}
+              height={200}
+              src={blog?.image}
+              alt={blog?.title}
+              className="w-full h-48 object-cover rounded-lg group-hover:scale-105 duration-1000"
+            />
+            <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mt-3">
+              <span>{blog?.date}</span>
+              <span className="mx-2">|</span>
+              <span>{blog?.author}</span>
             </div>
-          </>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white hover:underline mt-2">
+              {blog?.title}
+            </h3>
+            <DeleteAndUpdateBlogBtn blog={blog} />
+          </div>
         ))}
       </div>
     </div>

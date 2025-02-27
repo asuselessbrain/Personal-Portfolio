@@ -1,7 +1,7 @@
 import ProjectCard from "../shared/ProjectCard";
 
 export interface Project {
-  id: string;
+  _id: string;
   name: string;
   imageUrl: string;
   description: string;
@@ -11,16 +11,17 @@ export interface Project {
 }
 
 const FeaturedProject = async () => {
-  const data = await fetch("http://localhost:3004/services", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`, {
     next: {
       revalidate: 30,
     },
   });
-  const projects = await data.json();
+  const data = await res.json();
+  const projects = data?.data;
   return (
     <div className="mx-auto grid gap-16 space-y-10 md:space-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {projects?.slice(0, 3)?.map((project: Project) => (
-        <ProjectCard key={project?.id} project={project} />
+        <ProjectCard key={project?._id} project={project} />
       ))}
     </div>
   );

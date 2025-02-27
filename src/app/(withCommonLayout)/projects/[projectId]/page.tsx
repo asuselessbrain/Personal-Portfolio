@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { projectId } = await params;
 
   // fetch data
-  const data = await fetch(`http://localhost:3004/services/${projectId}`);
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects/${projectId}`);
   const project = await data.json();
 
   return {
@@ -29,11 +29,12 @@ const ProjectDetailsPage = async ({
 }) => {
   const { projectId } = await params;
 
-  const data = await fetch(`http://localhost:3004/services/${projectId}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects/${projectId}`, {
     cache: "no-cache",
   });
 
-  const project = await data.json();
+  const data = await res.json();
+  const project = data?.data
   return (
     <div className="mt-16">
       <div className="max-w-screen-lg mx-auto p-5 sm:p-10 md:p-16">

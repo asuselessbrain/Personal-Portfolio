@@ -10,7 +10,6 @@ const MessagesPage = async () => {
   });
   const data = await res.json();
   const messages = data?.data
-  console.log(messages);
   return (
     <div className="w-full m-10">
       <h2 className="text-3xl md:text-6xl text-center mb-10 font-bold">

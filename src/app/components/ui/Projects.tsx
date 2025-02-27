@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaEye } from "react-icons/fa";
 
 export interface Project {
-  id: string;
+  _id: string;
   name: string;
   imageUrl: string;
   description: string;
@@ -13,10 +13,11 @@ export interface Project {
 }
 
 const Projects = async () => {
-  const data = await fetch("http://localhost:3004/services", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`, {
     cache: "no-store"
   });
-  const projects = await data.json();
+  const data = await res.json();
+  const projects = data?.data
   return (
     <div className="mx-auto grid gap-16 space-y-10 md:space-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {projects?.map((project: Project) => (
@@ -54,7 +55,7 @@ const Projects = async () => {
                 </p>
 
                 <Link
-                  href={`/projects/${project?.id}`}
+                  href={`/projects/${project?._id}`}
                   className="flex items-center justify-center w-full"
                 >
                   <button className="my-2 bg-yellow-800 hover:bg-yellow-700 text-white font-bold py-2 px-4 w-auto rounded-full inline-flex items-center">
