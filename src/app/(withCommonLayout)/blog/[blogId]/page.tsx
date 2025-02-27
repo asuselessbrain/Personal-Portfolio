@@ -10,8 +10,9 @@ export async function generateMetadata({
   const { blogId } = await params;
 
   // fetch data
-  const data = await fetch(`http://localhost:3004/blogs/${blogId}`);
-  const blog = await data.json();
+  const res = await fetch(`${process.env.BACKEND_URL}/blogs/${blogId}`);
+  const data = await res.json();
+  const blog = data?.data
 
   return {
     title: blog?.title,
@@ -22,11 +23,12 @@ export async function generateMetadata({
 const page = async ({ params }: { params: Promise<{ blogId: string }> }) => {
   const { blogId } = await params;
 
-  const data = await fetch(`http://localhost:3004/blogs/${blogId}`, {
+  const data = await fetch(`${process.env.BACKEND_URL}/blogs/${blogId}`, {
     cache: "no-store",
   });
 
-  const blog = await data.json();
+  const res = await data.json();
+  const blog = res?.data;
   return (
     //   <!-- Blog post with featured image and dark mode support -->
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 pb-16 py-4 rounded dark:text-gray-100">
@@ -37,7 +39,7 @@ const page = async ({ params }: { params: Promise<{ blogId: string }> }) => {
             {blog?.title}
           </h1>
           <p className="text-gray-500 text-sm dark:text-gray-400">
-            Published on {blog?.date}
+            Published on {new Date(blog?.createdAt).toDateString()}
           </p>
         </div>
 

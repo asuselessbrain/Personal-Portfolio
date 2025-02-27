@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export interface Blog {
-  id: number;
+  _id: string;
   title: string;
   author: string;
   date: string;
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const BlogPage = async () => {
-  const data = await fetch("http://localhost:3004/blogs", {
+  const data = await fetch(`${process.env.BACKEND_URL}/blogs`, {
     cache: "no-store",
   });
 
@@ -34,8 +34,8 @@ const BlogPage = async () => {
         My Blogs
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs?.map((blog: Blog) => (
-          <Link href={`/blog/${blog?.id}`} key={blog.id}>
+        {blogs?.data?.map((blog: Blog) => (
+          <Link href={`/blog/${blog?._id}`} key={blog._id}>
             <div className="rounded-lg shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group">
               <Image
                 width={200}

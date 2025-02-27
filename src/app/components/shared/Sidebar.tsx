@@ -15,7 +15,7 @@ const Sidebar = () => {
   return (
     <div className="fixed transform min-h-screen w-[256px] ease-in-out flex justify-start items-start bg-gray-900 flex-col">
       <div className="hidden xl:flex justify-start p-6 items-center space-x-3">
-        <p className="text-2xl leading-6 text-white">OvonRueden</p>
+        <Link href="/"><p className="text-2xl leading-6 text-white">Arfan Ahmed</p></Link>
       </div>
 
       <div className="mt-6 flex flex-col justify-start items-start pl-4 w-full border-gray-600 space-y-3 pb-5">

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export const createBLog = async (data: FormData) => {
   const blog = Object.fromEntries(data.entries());
 
-  const res = await fetch("http://localhost:3004/blogs", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,10 +13,12 @@ export const createBLog = async (data: FormData) => {
     body: JSON.stringify(blog),
   });
 
-  const contactInfo = await res.json();
+  const blogRes = await res.json();
+  const blogInfo = blogRes?.data
+  
 
-  if (contactInfo) {
+  if (blogInfo) {
     redirect("/dashboard");
   }
-  return contactInfo;
+  return blogInfo;
 };

@@ -11,10 +11,11 @@ const DashboardPage = async () => {
   })
   const projects = await projectsData.json();
 
-  const blogsData = await fetch('http://localhost:3004/blogs', {
+  const blogsData = await fetch(`${process.env.BACKEND_URL}/blogs`, {
     cache: "force-cache"
   })
-  const blogs = await blogsData.json();
+  const blogRes = await blogsData.json();
+  const blogs = blogRes?.data
 
   return (
     <div className="flex items-center justify-center min-h-screen w-full">

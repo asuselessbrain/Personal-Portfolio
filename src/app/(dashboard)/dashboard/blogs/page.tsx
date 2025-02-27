@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export interface Blog {
-  id: number;
+  _id: string;
   title: string;
   author: string;
   date: string;
@@ -20,11 +20,12 @@ export const metadata: Metadata = {
 };
 
 const BlogPage = async () => {
-  const data = await fetch("http://localhost:3004/blogs", {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs`, {
     cache: "no-store",
   });
 
-  const blogs = await data.json();
+  const res = await data.json();
+  const blogs = res?.data
   return (
     <div
       data-aos="zoom-in-up"
@@ -36,7 +37,7 @@ const BlogPage = async () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((blog: Blog) => (
           <>
-            <div className="rounded-lg relative shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group h-full">
+            <div key={blog?._id} className="rounded-lg relative shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group h-full">
               <Image
                 width={200}
                 height={200}

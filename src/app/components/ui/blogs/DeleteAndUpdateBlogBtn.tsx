@@ -12,16 +12,12 @@ const DeleteAndUpdateBlogBtn = ({ blog }: { blog: Blog }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3004/blogs/${blog?.id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/${blog?._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete the blog.");
-      }
     } catch (error) {
       console.error("Error deleting blog:", error);
     }
