@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const BlogPage = async () => {
-  const data = await fetch(`${process.env.BACKEND_URL}/blogs`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs`, {
     cache: "no-store",
   });
 

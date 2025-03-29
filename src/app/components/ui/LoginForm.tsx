@@ -104,7 +104,7 @@ const LoginForm = () => {
               <div className="space-x-6 flex justify-center">
                 <button
                   onClick={() =>
-                    signIn("google", { callbackUrl: "/dashboard" })
+                    signIn("google", { callbackUrl: "https://arfan-ahmed.vercel.app/dashboard" })
                   }
                   type="button"
                   className="border-none outline-none"
@@ -118,7 +118,7 @@ const LoginForm = () => {
                 </button>
                 <button
                   onClick={() =>
-                    signIn("github", { callbackUrl: "/dashboard" })
+                    signIn("github", { callbackUrl: "https://arfan-ahmed.vercel.app/dashboard" })
                   }
                   type="button"
                   className="border-none outline-none"

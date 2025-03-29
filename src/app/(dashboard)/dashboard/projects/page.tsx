@@ -27,7 +27,7 @@ const DashboardProjectPage = async () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects?.map((project: Project) => (
-              <>
+              <div key={project?._id}>
                 <div className="rounded-lg relative shadow-lg bg-white dark:bg-neutral-800 dark:border dark:border-gray-700 p-4 group h-full">
                   <Image
                     width={200}
@@ -41,7 +41,7 @@ const DashboardProjectPage = async () => {
                   </h3>
                   <DeleteAndUpdateProjectBtn project={project} />
                 </div>
-              </>
+              </div>
             ))}
           </div>
         </div>

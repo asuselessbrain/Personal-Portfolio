@@ -2,20 +2,28 @@ import { authOptions } from "@/authOptions/authOptions";
 import { Card, CardContent } from "@/components/ui/card";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
-import LogOutButton from "../../components/ui/Logout"
+import LogOutButton from "../../components/ui/Logout";
 
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions);
-  const projectsData = await fetch('http://localhost:3004/services', {
-    cache: "force-cache"
-  })
-  const projects = await projectsData.json();
+  const projectsData = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`,
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
+  const projectsRes = await projectsData.json();
+  const projects = projectsRes?.data;
 
-  const blogsData = await fetch(`${process.env.BACKEND_URL}/blogs`, {
-    cache: "force-cache"
-  })
+  const blogsData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs`, {
+    next: {
+      revalidate: 30,
+    },
+  });
   const blogRes = await blogsData.json();
-  const blogs = blogRes?.data
+  const blogs = blogRes?.data;
 
   return (
     <div className="flex items-center justify-center min-h-screen w-full">

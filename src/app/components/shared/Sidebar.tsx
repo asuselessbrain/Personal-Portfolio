@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Link href="/"><p className="text-2xl leading-6 text-white">Arfan Ahmed</p></Link>
       </div>
 
-      <div className="mt-6 flex flex-col justify-start items-start pl-4 w-full border-gray-600 space-y-3 pb-5">
+      <div className="mt-6 flex flex-col justify-start items-start px-4 w-full border-gray-600 space-y-3 pb-5">
         {items.map((item) => (
           <Link
             key={item?.value}
@@ -26,7 +26,7 @@ const Sidebar = () => {
             className={`${
               pathname === item?.value
                 ? "text-green-600 font-bold py-2 px-3 w-full text-left border border-green-600 rounded-md"
-                : "py-2 px-3 rounded hover:bg-gray-100 w-full text-left dark:hover:bg-gray-800"
+                : "py-2 px-3 text-white rounded hover:bg-gray-300 hover:text-black w-full text-left dark:hover:bg-gray-800"
             }`}
           >
             {item?.name}

@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { blogId } = await params;
 
   // fetch data
-  const res = await fetch(`${process.env.BACKEND_URL}/blogs/${blogId}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/${blogId}`);
   const data = await res.json();
   const blog = data?.data
 
@@ -23,12 +23,16 @@ export async function generateMetadata({
 const page = async ({ params }: { params: Promise<{ blogId: string }> }) => {
   const { blogId } = await params;
 
-  const data = await fetch(`${process.env.BACKEND_URL}/blogs/${blogId}`, {
+  console.log(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/${blogId}`);
+
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/${blogId}`, {
     cache: "no-store",
   });
 
   const res = await data.json();
+  console.log(res);
   const blog = res?.data;
+  console.log(blog);
   return (
     //   <!-- Blog post with featured image and dark mode support -->
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 pb-16 py-4 rounded dark:text-gray-100">
